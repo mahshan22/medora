@@ -7,6 +7,7 @@ import PharmacyFeature from "../../components/common/PharmacyFeature";
 import SkincareFeature from "../../components/products/SkincareFeature";
 import LaboratoryFeature from "../../components/common/LaboratoryFeature";
 import PatientPortalPreview from "../../components/dashboard/PatientPortalPreview";
+import FinalCTA from "../../components/common/FinalCTA";
 
 function Home() {
   return (
@@ -26,6 +27,8 @@ function Home() {
       <LaboratoryFeature />
 
       <PatientPortalPreview />
+
+      <FinalCTA />
 
       <Hero />
 

@@ -1,35 +1,269 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+/* ========================================
+   MÉDORA DESIGN SYSTEM
+======================================== */
 
 :root {
-  font-family: "DM Sans", sans-serif;
-  color: #242321;
-  background: #f8f4ee;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  /* Brand colours */
+  --color-ivory: #f8f4ee;
+  --color-espresso: #342a26;
+  --color-charcoal: #242321;
+  --color-nude: #e8d8cc;
+  --color-champagne: #d8c3b5;
+  --color-taupe: #a89589;
+  --color-gold: #b99a67;
+
+  /* Supporting colours */
+  --color-white: #ffffff;
+  --color-muted: #746b65;
+  --color-border: #e8d8cc;
+  --color-surface: #fdfbf8;
+
+  /* Typography */
+  --font-body: "DM Sans", sans-serif;
+  --font-display: "Playfair Display", serif;
+
+  /* Layout */
+  --container-width: 1280px;
+  --section-space: 96px;
+
+  /* Rounded corners */
+  --radius-card: 20px;
+  --radius-button: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 8px 30px rgba(52, 42, 38, 0.05);
+  --shadow-card-hover: 0 16px 40px rgba(52, 42, 38, 0.1);
+
+  /* Transitions */
+  --transition-smooth: 250ms ease;
+}
+
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background: #f8f4ee;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-button,
-a {
-  font-family: inherit;
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  color: var(--color-espresso);
+  font-weight: 500;
 }
 
-::selection {
-  background: #d8c3b5;
-  color: #342a26;
+p {
+  margin-top: 0;
 }
 
 .font-display {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
 }
 
 .font-body {
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
+}
+
+/* ========================================
+   LINKS AND BUTTONS
+======================================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Accessible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   SELECTION
+======================================== */
+
+::selection {
+  background: var(--color-champagne);
+  color: var(--color-espresso);
+}
+
+/* ========================================
+   REUSABLE DESIGN CLASSES
+======================================== */
+
+.medora-container {
+  width: min(100% - 40px, var(--container-width));
+  margin-inline: auto;
+}
+
+.medora-section {
+  padding-block: var(--section-space);
+}
+
+.medora-card {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    border-color var(--transition-smooth);
+}
+
+.medora-card:hover {
+  border-color: var(--color-champagne);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.medora-eyebrow {
+  color: var(--color-taupe);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.medora-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition:
+    background-color var(--transition-smooth),
+    color var(--transition-smooth),
+    border-color var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+
+.medora-button:hover {
+  transform: translateY(-2px);
+}
+
+.medora-button-primary {
+  background: var(--color-espresso);
+  color: var(--color-white);
+}
+
+.medora-button-primary:hover {
+  background: #514139;
+}
+
+.medora-button-secondary {
+  border-color: var(--color-champagne);
+  background: transparent;
+  color: var(--color-espresso);
+}
+
+.medora-button-secondary:hover {
+  background: var(--color-nude);
+}
+
+/* ========================================
+   IMAGES
+======================================== */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   RESPONSIVE SPACING
+======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --section-space: 64px;
+  }
+
+  .medora-container {
+    width: min(100% - 32px, var(--container-width));
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-space: 48px;
+  }
+
+  .medora-container {
+    width: min(100% - 28px, var(--container-width));
+  }
 }

@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar";
 
 import Home from "./pages/home/Home";
 import Doctors from "./pages/doctors/Doctors";
+import Departments from "./pages/departments/Departments";
 import DoctorProfile from "./pages/doctors/DoctorProfile";
 import Hospital from "./pages/hospital/Hospital";
 import Pharmacy from "./pages/pharmacy/Pharmacy";
@@ -35,6 +36,8 @@ function App() {
             path="/doctors/:id"
             element={<DoctorProfile />}
           />
+
+          <Route path="/departments" element={<Departments />} />
 
           <Route path="/hospital" element={<Hospital />} />
 
